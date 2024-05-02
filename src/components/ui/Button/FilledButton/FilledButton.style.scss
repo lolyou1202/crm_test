@@ -1,0 +1,45 @@
+.filledButton {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px;
+	background-color: transparent;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	overflow: hidden;
+	svg {
+		transition: stroke 0.2s ease-in-out;
+	}
+	p {
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 20px;
+		transition: color 0.2s ease-in-out;
+	}
+	&.default {
+		svg {
+			stroke: var(--gray-2);
+		}
+		p {
+			color: var(--gray-2);
+		}
+	}
+	&.outlined {
+		svg {
+			stroke: var(--primary);
+		}
+		p {
+			color: var(--primary);
+		}
+	}
+	&.filled {
+		background-color: var(--gray-0);
+		svg {
+			stroke: var(--primary);
+		}
+		p {
+			color: var(--primary);
+		}
+	}
+}

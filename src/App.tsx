@@ -1,5 +1,11 @@
+import { Sidebar } from './components/logic/Sidebar/Sidebar'
+
 function App() {
-	return <>фывф</>
+	return (
+		<div className='app'>
+			<Sidebar />
+		</div>
+	)
 }
 
 export default App

@@ -1,5 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-  --black: ;
+	--primary: #030b5d;
+	--black: #121c2d;
+	--white: #ffffff;
+	--gray-0: #f4f4f6;
+	--gray-1: #e1e3ea;
+	--gray-2: #8891aa;
+	--gray-3: #606b85;
+}
+
+*,
+*::before,
+*::after {
+	font-family: 'Inter', sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.app {
+	display: flex;
+	height: 100vh;
+}
+
+.main {
+	display: flex;
+	width: 100%;
+}
+
+svg {
+	flex-shrink: 0;
 }
