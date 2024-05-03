@@ -3,11 +3,11 @@ import { OutlineButton } from '../OutlineButton/OutlineButton'
 import { CaretDoubleVertical } from '../../../Icons/CaretDoubleVertical'
 
 export const SidebarShowHideButton = ({
-	setSidebarShow,
+	handleClickShowHideButton,
 }: {
-	setSidebarShow: React.Dispatch<React.SetStateAction<boolean>>
+	handleClickShowHideButton: () => void
 }) => {
-	const [variantButton, setVariantButton] = useState<'default' | 'outlined'>(
+	const [variantButton, setVariantButton] = useState<'default' | 'hover'>(
 		'default'
 	)
 
@@ -15,8 +15,8 @@ export const SidebarShowHideButton = ({
 		<OutlineButton
 			variant={variantButton}
 			icon={<CaretDoubleVertical size={16} />}
-			onClick={() => setSidebarShow(prevState => !prevState)}
-			onMouseEnter={() => setVariantButton('outlined')}
+			onClick={handleClickShowHideButton}
+			onMouseEnter={() => setVariantButton('hover')}
 			onMouseLeave={() => setVariantButton('default')}
 			className='sidebar__showHideButton'
 		/>

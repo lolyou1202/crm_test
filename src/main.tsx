@@ -1,4 +1,4 @@
-import './index.scss'
+import './index.style.scss'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Dashboard } from './pages/Dashboard'

@@ -6,24 +6,19 @@
 	padding: 0 16px;
 	background-color: transparent;
 	border: none;
+	cursor: pointer;
 	p {
 		font-weight: 600;
 		font-size: 14px;
 		line-height: 20px;
+		color: var(--gray-2);
 		transition: color 0.2s ease-in-out;
 	}
 	svg {
+		stroke: var(--gray-2);
 		transition: stroke 0.2s ease-in-out;
 	}
-	&.default {
-		svg {
-			stroke: var(--gray-2);
-		}
-		p {
-			color: var(--gray-2);
-		}
-	}
-	&.outlined {
+	&:hover {
 		svg {
 			stroke: var(--primary);
 		}
@@ -31,7 +26,7 @@
 			color: var(--primary);
 		}
 	}
-	&.active {
+	&.action {
 		&::after {
 			content: '';
 			position: absolute;

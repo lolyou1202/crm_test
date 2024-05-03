@@ -12,7 +12,7 @@ export const OutlineButton = ({
 	className,
 	children,
 }: {
-	variant?: 'default' | 'outlined' | 'filled'
+	variant?: 'default' | 'hover' | 'action'
 	text?: string
 	icon?: ReactNode
 	onClick?: () => void

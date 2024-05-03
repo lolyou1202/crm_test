@@ -12,7 +12,7 @@ export const SidebarFilledButton = ({
 	text: string
 }) => {
 	const [variantButton, setVariantButton] = useState<
-		'default' | 'outlined' | 'filled'
+		'default' | 'hover' | 'action'
 	>('default')
 
 	const navigate = useNavigate()
@@ -25,9 +25,9 @@ export const SidebarFilledButton = ({
 	}
 
 	const handleEventButton = useCallback(
-		(variant: 'default' | 'outlined' | 'filled') => {
+		(variant: 'default' | 'hover' | 'action') => {
 			if (location.pathname === url) {
-				setVariantButton('filled')
+				setVariantButton('action')
 				return
 			}
 			setVariantButton(variant)
@@ -45,7 +45,7 @@ export const SidebarFilledButton = ({
 			text={text}
 			variant={variantButton}
 			onClick={handleClickButton}
-			onMouseEnter={() => handleEventButton('outlined')}
+			onMouseEnter={() => handleEventButton('hover')}
 			onMouseLeave={() => handleEventButton('default')}
 		/>
 	)

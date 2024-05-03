@@ -9,18 +9,23 @@ export const FilledButton = ({
 	onClick,
 	onMouseEnter,
 	onMouseLeave,
+	className,
 	children,
 }: {
-	variant?: 'default' | 'outlined' | 'filled'
+	variant?: 'default' | 'hover' | 'action'
 	text?: string
 	icon?: ReactNode
 	onClick?: () => void
 	onMouseEnter?: () => void
 	onMouseLeave?: () => void
+	className?: string
 	children?: ReactNode
 }) => {
-	const filledButtonClassNames = classNames('filledButton', variant)
-
+	const filledButtonClassNames = classNames(
+		'filledButton',
+		variant,
+		className
+	)
 	return (
 		<button
 			className={filledButtonClassNames}
