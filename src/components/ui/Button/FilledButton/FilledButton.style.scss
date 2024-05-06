@@ -9,23 +9,17 @@
 	cursor: pointer;
 	overflow: hidden;
 	svg {
+		stroke: var(--gray-2);
 		transition: stroke 0.2s ease-in-out;
 	}
 	p {
 		font-weight: 600;
 		font-size: 16px;
 		line-height: 20px;
+		color: var(--gray-2);
 		transition: color 0.2s ease-in-out;
 	}
-	&.default {
-		svg {
-			stroke: var(--gray-2);
-		}
-		p {
-			color: var(--gray-2);
-		}
-	}
-	&.hover {
+	&:hover {
 		svg {
 			stroke: var(--primary);
 		}

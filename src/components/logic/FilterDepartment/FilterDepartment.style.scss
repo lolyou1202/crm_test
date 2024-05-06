@@ -1,0 +1,25 @@
+.filter-department {
+	display: flex;
+	gap: 16px;
+	max-width: calc(100% - 240px)
+}
+.department {
+	&-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	&-item {
+		border-radius: 18px;
+		padding: 7px 12px;
+		&.hide {
+			display: none;
+		}
+	}
+	&-showMore {
+		border: none;
+		&:hover {
+			border: none;
+		}
+	}
+}

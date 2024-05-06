@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { ReactNode } from 'react'
 
 export const FilledButton = ({
-	variant = 'default',
+	action = false,
 	text,
 	icon,
 	onClick,
@@ -12,7 +12,7 @@ export const FilledButton = ({
 	className,
 	children,
 }: {
-	variant?: 'default' | 'hover' | 'action'
+	action?: boolean
 	text?: string
 	icon?: ReactNode
 	onClick?: () => void
@@ -23,7 +23,7 @@ export const FilledButton = ({
 }) => {
 	const filledButtonClassNames = classNames(
 		'filledButton',
-		variant,
+		{ action: action },
 		className
 	)
 	return (

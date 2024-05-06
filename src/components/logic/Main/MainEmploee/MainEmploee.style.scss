@@ -1,0 +1,23 @@
+.main-emploee {
+	display: flex;
+	flex-direction: column;
+	padding: 0 24px 24px 24px;
+	height: 100%;
+	& > span {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		padding: 16px 0;
+		span {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			p {
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 20px;
+				color: var(--black);
+			}
+		}
+	}
+}

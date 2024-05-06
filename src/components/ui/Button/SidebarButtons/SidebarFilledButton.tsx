@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FilledButton } from '../FilledButton/FilledButton'
-import { ReactNode, useCallback, useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 
 export const SidebarFilledButton = ({
 	url,
@@ -11,9 +11,7 @@ export const SidebarFilledButton = ({
 	icon: ReactNode
 	text: string
 }) => {
-	const [variantButton, setVariantButton] = useState<
-		'default' | 'hover' | 'action'
-	>('default')
+	const [isActiveButton, setActiveButton] = useState(false)
 
 	const navigate = useNavigate()
 	const location = useLocation()
@@ -24,29 +22,20 @@ export const SidebarFilledButton = ({
 		}
 	}
 
-	const handleEventButton = useCallback(
-		(variant: 'default' | 'hover' | 'action') => {
-			if (location.pathname === url) {
-				setVariantButton('action')
-				return
-			}
-			setVariantButton(variant)
-		},
-		[location.pathname, url]
-	)
-
 	useEffect(() => {
-		handleEventButton('default')
-	}, [handleEventButton])
+		if (location.pathname === url) {
+			setActiveButton(true)
+		} else {
+			setActiveButton(false)
+		}
+	}, [location.pathname, setActiveButton, url])
 
 	return (
 		<FilledButton
 			icon={icon}
 			text={text}
-			variant={variantButton}
+			action={isActiveButton}
 			onClick={handleClickButton}
-			onMouseEnter={() => handleEventButton('hover')}
-			onMouseLeave={() => handleEventButton('default')}
 		/>
 	)
 }

@@ -1,33 +1,33 @@
-export const Cross = ({
-	size = 20,
+export const TableSort = ({
+	size = 12,
 	className,
-	stroke,
 	strokeWidth = 1.5,
+	sort,
 }: {
 	size?: number
-	stroke?: string
 	strokeWidth?: number
 	className?: string
+	sort?: 'asc' | 'desc' | 'none'
 }) => {
 	return (
 		<svg
 			width={size}
 			height={size}
 			className={className}
-			viewBox='0 0 20 20'
+			viewBox='0 0 12 12'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
 		>
 			<path
-				d='M15 5L5 15'
-				stroke={stroke}
+				d='M8.25 3.75L6 1.5L3.75 3.75'
+				stroke={sort === 'asc' ? 'var(--primary)' : 'var(--gray-2)'}
 				strokeWidth={strokeWidth}
 				strokeLinecap='round'
 				strokeLinejoin='round'
 			/>
 			<path
-				d='M5 5L15 15'
-				stroke={stroke}
+				d='M8.25 8.25L6 10.5L3.75 8.25'
+				stroke={sort === 'desc' ? 'var(--primary)' : 'var(--gray-2)'}
 				strokeWidth={strokeWidth}
 				strokeLinecap='round'
 				strokeLinejoin='round'

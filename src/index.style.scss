@@ -8,6 +8,8 @@
 	--gray-1: #e1e3ea;
 	--gray-2: #8891aa;
 	--gray-3: #606b85;
+	--red: #D61F1F;
+	--yellow: #FBBC05;
 }
 
 *,
@@ -29,6 +31,7 @@
 
 .main {
 	display: flex;
+	flex-direction: column;
 	width: 100%;
 }
 

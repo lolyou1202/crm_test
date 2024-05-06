@@ -2,6 +2,7 @@ import './Header.style.scss'
 import { Tab } from '../../ui/Tab/Tab'
 import { HeaderTab } from '../../../constants/headerTabs'
 import { SearchInput } from '../../ui/SearchInput/SearchInput'
+import { useState } from 'react'
 
 export const HeaderEmploee = ({
 	variantShow,
@@ -10,6 +11,8 @@ export const HeaderEmploee = ({
 	variantShow: HeaderTab[]
 	setVariantShow: React.Dispatch<React.SetStateAction<HeaderTab[]>>
 }) => {
+	const [searchInput, setSearchInput] = useState('')
+
 	const handleClickTab = (variant: string) => {
 		setVariantShow(prevState =>
 			[...prevState].map(tab =>
@@ -19,6 +22,7 @@ export const HeaderEmploee = ({
 			)
 		)
 	}
+
 	return (
 		<div className='header'>
 			<span>
@@ -38,7 +42,11 @@ export const HeaderEmploee = ({
 					))}
 				</div>
 			</span>
-			<SearchInput className='header-search' />
+			<SearchInput
+				className='header-search'
+				value={searchInput}
+				onChange={setSearchInput}
+			/>
 		</div>
 	)
 }

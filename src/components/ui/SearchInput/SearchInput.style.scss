@@ -34,9 +34,17 @@
 		line-height: 20px;
 		color: var(--primary);
 		transition: border 0.2s ease-in-out;
+		&::placeholder {
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 20px;
+			color: var(--gray-2);
+		}
 	}
 	&-cross {
 		display: flex;
+		align-items: center;
+		justify-content: center;
 		position: absolute;
 		right: 12px;
 		top: 50%;
@@ -50,12 +58,6 @@
 		svg {
 			stroke: var(--white);
 		}
-	}
-	&::placeholder {
-		font-weight: 500;
-		font-size: 14px;
-		line-height: 20px;
-		color: var(--gray-2);
 	}
 	&:hover {
 		.search-icon {

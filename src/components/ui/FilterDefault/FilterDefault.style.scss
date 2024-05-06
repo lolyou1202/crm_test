@@ -1,0 +1,17 @@
+.filterDefault {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	&-cross {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		svg {
+			stroke: var(--red);
+		}
+	}
+	&-button {
+		gap: 4px;
+		padding: 8px 12px;
+	}
+}

@@ -4,29 +4,22 @@
 	gap: 8px;
 	padding: 8px;
 	background-color: var(--white);
-	border: none;
+	border: 1px solid var(--gray-2);
 	border-radius: 4px;
 	cursor: pointer;
 	transition: border 0.2s ease-in-out;
 	svg {
+		stroke: var(--gray-2);
 		transition: stroke 0.2s ease-in-out;
 	}
 	p {
 		font-weight: 500;
 		font-size: 14px;
 		line-height: 20px;
+		color: var(--gray-2);
 		transition: color 0.2s ease-in-out;
 	}
-	&.default {
-		border: 1px solid var(--gray-2);
-		svg {
-			stroke: var(--gray-2);
-		}
-		p {
-			color: var(--gray-2);
-		}
-	}
-	&.hover {
+	&:hover {
 		border: 1px solid var(--primary);
 		svg {
 			stroke: var(--primary);

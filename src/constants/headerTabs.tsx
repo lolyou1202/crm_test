@@ -6,7 +6,7 @@ export type HeaderTab = {
 	variant: 'kanban' | 'table'
 	icon: ReactNode
 	text: string
-	active?: boolean
+	active: boolean
 }
 
 export const headerTabs: HeaderTab[] = [
@@ -14,10 +14,12 @@ export const headerTabs: HeaderTab[] = [
 		variant: 'kanban',
 		icon: <Kanban />,
 		text: 'Канбан',
+		active: false,
 	},
 	{
 		variant: 'table',
 		icon: <Table />,
 		text: 'Таблица',
+		active: true,
 	},
 ]
