@@ -6,6 +6,7 @@
 	padding: 0 24px;
 	height: 68px;
 	border-bottom: 1px solid var(--gray-2);
+	flex-shrink: 0;
 	&-name {
 		display: flex;
 		align-items: center;

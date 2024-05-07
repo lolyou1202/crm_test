@@ -8,8 +8,8 @@
 	--gray-1: #e1e3ea;
 	--gray-2: #8891aa;
 	--gray-3: #606b85;
-	--red: #D61F1F;
-	--yellow: #FBBC05;
+	--red: #d61f1f;
+	--yellow: #fbbc05;
 }
 
 *,
@@ -37,4 +37,8 @@
 
 svg {
 	flex-shrink: 0;
+}
+
+*::-webkit-scrollbar {
+	display: none;
 }
