@@ -24,14 +24,6 @@ export const departmens: Department[] = [
 		name: 'Разработка',
 		active: false,
 	},
-	//{
-	//	name: 'Разработка',
-	//	active: false,
-	//},
-	//{
-	//	name: 'Разработка',
-	//	active: false,
-	//},
 ]
 
 export const NUMOFUNCOVEREDFILTERS = 5

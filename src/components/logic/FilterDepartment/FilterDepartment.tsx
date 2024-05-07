@@ -1,22 +1,28 @@
 import './FilterDepartment.style.scss'
 import { useState } from 'react'
-import {
-	Department,
-	NUMOFUNCOVEREDFILTERS,
-} from '../../../constants/departmens'
+import { NUMOFUNCOVEREDFILTERS } from '../../../constants/departmens'
 import { OutlineButton } from '../../ui/Button/OutlineButton/OutlineButton'
 import classNames from 'classnames'
 
 export const FilterDepartment = ({
 	departmensFilter,
 }: {
-	departmensFilter: Department[]
+	departmensFilter: {
+		filterAtrName: string
+		active: boolean
+	}[]
 }) => {
 	const [isShowMore, setShowMore] = useState(false)
 
 	return (
 		<div className='filter-department'>
 			<div className='department-list'>
+				<OutlineButton
+					text='Все'
+					action={true}
+					className='department-item'
+					onClick={() => {}}
+				/>
 				{departmensFilter.map((department, index) => {
 					const departmentItemClassNames = classNames(
 						'department-item',
@@ -28,8 +34,8 @@ export const FilterDepartment = ({
 					)
 					return (
 						<OutlineButton
-							key={department.name}
-							text={department.name}
+							key={department.filterAtrName}
+							text={department.filterAtrName}
 							action={department.active}
 							className={departmentItemClassNames}
 							onClick={() => {}}

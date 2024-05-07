@@ -1,13 +1,29 @@
 import './MainEmploee.style.scss'
-import { Department } from '../../../../constants/departmens'
 import { FilterDepartment } from '../../FilterDepartment/FilterDepartment'
 import { FilterDefault } from '../../../ui/FilterDefault/FilterDefault'
 import { TableEmploee } from '../../../ui/TableEmploee/TableEmploee'
+import { TableRow } from '../../../../constants/tableFields'
 
 export const MainEmploee = ({
 	departmensFilter,
+	sorting,
+	handleSortClick,
 }: {
-	departmensFilter: Department[]
+	departmensFilter: {
+		filterAtrName: string
+		active: boolean
+	}[]
+	sorting: {
+		atribute: keyof TableRow
+		direction: 'asc' | 'desc'
+	}
+	handleSortClick: ({
+		atribute,
+		direction,
+	}: {
+		atribute: keyof TableRow
+		direction: 'asc' | 'desc'
+	}) => void
 }) => {
 	return (
 		<div className='main-emploee'>
@@ -18,7 +34,7 @@ export const MainEmploee = ({
 					<FilterDefault action={true} />
 				</span>
 			</span>
-			<TableEmploee />
+			<TableEmploee sorting={sorting} handleSortClick={handleSortClick} />
 		</div>
 	)
 }

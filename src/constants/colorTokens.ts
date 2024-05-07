@@ -6,4 +6,5 @@ export const colorTokens = {
 	gray1: 'var(--gray-1)',
 	gray2: 'var(--gray-2)',
 	gray3: 'var(--gray-3)',
+	yellow: 'var(--yellow)',
 }
