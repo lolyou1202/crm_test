@@ -1,7 +1,8 @@
 .table {
 	display: flex;
 	flex-direction: column;
-	width: calc(100vw - 240px - 24px - 24px);
+	position: relative;
+	width: 100%;
 	height: 100%;
 	border: 1px solid var(--gray-2);
 	border-radius: 8px;
@@ -11,12 +12,8 @@
 		z-index: 3;
 		top: 0;
 	}
-	thead tr > th {
-		position: sticky;
-		z-index: 2;
-		top: 0;
-	}
 	thead tr > :first-child {
+		position: sticky;
 		z-index: 3;
 		left: 0;
 		top: 0;
@@ -28,11 +25,9 @@
 	}
 	&-row {
 		display: flex;
-		width: 100%;
-
 		&:last-child {
 			.table-cell.body {
-				border-bottom: none
+				border-bottom: none;
 			}
 		}
 	}

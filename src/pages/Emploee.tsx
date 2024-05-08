@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { HeaderEmploee } from '../components/logic/Header/HeaderEmploee'
 import { Sidebar } from '../components/logic/Sidebar/Sidebar'
 import { headerTabs } from '../constants/headerTabs'
@@ -37,6 +37,9 @@ export const Emploee = () => {
 	}) => {
 		setSorting(prevState => {
 			if (prevState.atribute === atribute) {
+				if (atribute === 'favorite') {
+					return { atribute: 'name', direction: 'asc' }
+				}
 				return {
 					...prevState,
 					direction: direction === 'asc' ? 'desc' : 'asc',
@@ -46,33 +49,6 @@ export const Emploee = () => {
 			}
 		})
 	}
-
-	const sortDataTable = useCallback(() => {
-		switch (sorting.direction) {
-			case 'asc':
-				setFilteredDataTable(prevState =>
-					prevState.sort((first, second) =>
-						first[sorting.atribute]! > second[sorting.atribute]!
-							? 1
-							: -1
-					)
-				)
-				break
-			case 'desc':
-				setFilteredDataTable(prevState =>
-					prevState.sort((first, second) =>
-						first[sorting.atribute]! > second[sorting.atribute]!
-							? -1
-							: 1
-					)
-				)
-				break
-		}
-	}, [sorting])
-
-	useEffect(() => {
-		sortDataTable()
-	}, [sortDataTable])
 
 	return (
 		<div className='app'>

@@ -3,7 +3,13 @@ import { Cross } from '../../Icons/Cross'
 import { Filter } from '../../Icons/Filter'
 import { FilledButton } from '../Button/FilledButton/FilledButton'
 
-export const FilterDefault = ({ action }: { action: boolean }) => {
+export const FilterDefault = ({
+	action,
+	handleFilterButtonClick,
+}: {
+	action: boolean
+	handleFilterButtonClick: () => void
+}) => {
 	return (
 		<div className='filterDefault'>
 			{action && (
@@ -15,7 +21,7 @@ export const FilterDefault = ({ action }: { action: boolean }) => {
 				icon={<Filter />}
 				text='Фильтр'
 				action={action}
-				onClick={() => {}}
+				onClick={handleFilterButtonClick}
 				className='filterDefault-button'
 			/>
 		</div>

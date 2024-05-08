@@ -26,13 +26,14 @@
 
 .app {
 	display: flex;
+	width: 100vw;
 	height: 100vh;
 }
 
 .main {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	width: calc(100% - 240px);
 }
 
 svg {

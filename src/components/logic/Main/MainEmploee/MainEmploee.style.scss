@@ -1,6 +1,7 @@
 .main-emploee {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 	padding: 0 24px 24px 24px;
 	height: calc(100% - 68px);
 	& > span {

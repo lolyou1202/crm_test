@@ -3,6 +3,9 @@ import { FilterDepartment } from '../../FilterDepartment/FilterDepartment'
 import { FilterDefault } from '../../../ui/FilterDefault/FilterDefault'
 import { TableEmploee } from '../../../ui/TableEmploee/TableEmploee'
 import { TableRow } from '../../../../constants/tableFields'
+import Drawer from '@mui/material/Drawer'
+import { useState } from 'react'
+import { FiltersDrawer } from '../../FiltersDrawer/FiltersDrawer'
 
 export const MainEmploee = ({
 	dataTable,
@@ -27,13 +30,31 @@ export const MainEmploee = ({
 		direction: 'asc' | 'desc'
 	}) => void
 }) => {
+	const [isOpenDrawer, setOpenDrawer] = useState(false)
+
+	const toggleDrawer = () => {
+		setOpenDrawer(prevState => !prevState)
+	}
+
 	return (
 		<div className='main-emploee'>
 			<span>
 				<FilterDepartment departmensFilter={departmensFilter} />
 				<span>
-					<p>152 из 152</p>
-					<FilterDefault action={true} />
+					<p>
+						{dataTable.length} из {dataTable.length}
+					</p>
+					<FilterDefault
+						action={false}
+						handleFilterButtonClick={toggleDrawer}
+					/>
+					<Drawer
+						open={isOpenDrawer}
+						onClose={toggleDrawer}
+						anchor='right'
+					>
+						<FiltersDrawer toggleDrawer={toggleDrawer} />
+					</Drawer>
 				</span>
 			</span>
 			<TableEmploee
