@@ -1,5 +1,5 @@
 export interface TableColumn {
-	id: string
+	id: keyof TableRow
 	label: string
 	minWidth?: number
 }
@@ -21,7 +21,7 @@ export const tableColumns: TableColumn[] = [
 		minWidth: 180,
 	},
 	{
-		id: 'mail',
+		id: 'email',
 		label: 'Почта',
 		minWidth: 260,
 	},
@@ -76,7 +76,6 @@ export interface TableRow {
 	age: number
 	nationality: string
 }
-
 
 export const tableRows: TableRow[] = [
 	{

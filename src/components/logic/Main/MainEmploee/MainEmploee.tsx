@@ -5,10 +5,12 @@ import { TableEmploee } from '../../../ui/TableEmploee/TableEmploee'
 import { TableRow } from '../../../../constants/tableFields'
 
 export const MainEmploee = ({
+	dataTable,
 	departmensFilter,
 	sorting,
 	handleSortClick,
 }: {
+	dataTable: TableRow[]
 	departmensFilter: {
 		filterAtrName: string
 		active: boolean
@@ -34,7 +36,11 @@ export const MainEmploee = ({
 					<FilterDefault action={true} />
 				</span>
 			</span>
-			<TableEmploee sorting={sorting} handleSortClick={handleSortClick} />
+			<TableEmploee
+				dataTable={dataTable}
+				sorting={sorting}
+				handleSortClick={handleSortClick}
+			/>
 		</div>
 	)
 }

@@ -2,19 +2,17 @@ import './TableEmploee.style.scss'
 import { Star } from '../../Icons/Star'
 import { TableSort } from '../../Icons/TableSort'
 import { useState } from 'react'
-import {
-	TableRow,
-	tableColumns,
-	tableRows,
-} from '../../../constants/tableFields'
+import { TableRow, tableColumns } from '../../../constants/tableFields'
 import { colorTokens } from '../../../constants/colorTokens'
 
 const { gray0, gray2, yellow } = colorTokens
 
 export const TableEmploee = ({
+	dataTable,
 	sorting,
 	handleSortClick,
 }: {
+	dataTable: TableRow[]
 	sorting: {
 		atribute: keyof TableRow
 		direction: 'asc' | 'desc'
@@ -35,6 +33,12 @@ export const TableEmploee = ({
 				<tr className='table-row'>
 					<th
 						className='table-cell head'
+						onClick={() =>
+							handleSortClick({
+								atribute: 'favorite',
+								direction: 'desc',
+							})
+						}
 						onMouseEnter={() => setHoverColumn(0)}
 						onMouseLeave={() => setHoverColumn(null)}
 					>
@@ -76,29 +80,47 @@ export const TableEmploee = ({
 				</tr>
 			</thead>
 			<tbody className='table-body'>
-				{tableRows.map(row => (
+				{dataTable.map(row => (
 					<tr key={row.id} className='table-row'>
-						<td
-							className='table-cell body'
-							style={{
-								backgroundColor: hoverColumn === 0 ? gray0 : '',
-							}}
-						>
-							<Star />
-						</td>
-						{Object.values(row).map((cell, index) => (
-							<td
-								key={index}
-								className='table-cell body'
-								style={{
-									backgroundColor:
-										hoverColumn === index + 1 ? gray0 : '',
-									minWidth: tableColumns[index].minWidth,
-								}}
-							>
-								<p className='table-cell-text'>{cell}</p>
-							</td>
-						))}
+						{Object.keys(row).map((cell, index) =>
+							cell === 'favorite' ? (
+								<td
+									className='table-cell body'
+									style={{
+										backgroundColor:
+											hoverColumn === 0 ? gray0 : '',
+									}}
+								>
+									<Star
+										stroke={
+											row[cell as keyof TableRow]
+												? yellow
+												: gray2
+										}
+										fill={
+											row[cell as keyof TableRow]
+												? yellow
+												: 'none'
+										}
+									/>
+								</td>
+							) : (
+								<td
+									key={index}
+									className='table-cell body'
+									style={{
+										backgroundColor:
+											hoverColumn === index ? gray0 : '',
+										minWidth:
+											tableColumns[index - 1].minWidth,
+									}}
+								>
+									<p className='table-cell-text'>
+										{row[cell as keyof TableRow]}
+									</p>
+								</td>
+							)
+						)}
 					</tr>
 				))}
 			</tbody>

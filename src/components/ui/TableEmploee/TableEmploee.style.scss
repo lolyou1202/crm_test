@@ -29,6 +29,12 @@
 	&-row {
 		display: flex;
 		width: 100%;
+
+		&:last-child {
+			.table-cell.body {
+				border-bottom: none
+			}
+		}
 	}
 	&-cell {
 		display: flex;
