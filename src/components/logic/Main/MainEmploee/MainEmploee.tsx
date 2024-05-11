@@ -5,7 +5,7 @@ import { FilterDefault } from '../../../ui/FilterDefault/FilterDefault'
 import { TableEmploee } from '../../../ui/TableEmploee/TableEmploee'
 import { TableRow } from '../../../../constants/tableFields'
 import { FilterDrawer } from '../../FilterDrawer/FilterDrawer'
-import { DrawerTemplate } from '../../../ui/Drawer/DrawerTemplate'
+import { PersonDrawer } from '../../PersonDrawer/PersonDrawer'
 
 export const MainEmploee = ({
 	dataTable,
@@ -31,7 +31,7 @@ export const MainEmploee = ({
 	}) => void
 }) => {
 	const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
-	const [isOpenEmploeeDrawer, setOpenEmploeeDrawer] = useState(true)
+	const [isOpenEmploeeDrawer, setOpenEmploeeDrawer] = useState(false)
 	const [isOpenDepartmentFilter, setOpenDepartmentFilter] = useState(false)
 
 	const toggleDrawer = (
@@ -49,9 +49,9 @@ export const MainEmploee = ({
 						{dataTable.length} из {dataTable.length}
 					</p>
 					<FilterDefault
-						action={isOpenDepartmentFilter}
+						action={isOpenEmploeeDrawer}
 						handleFilterButtonClick={() =>
-							toggleDrawer(setOpenDepartmentFilter)
+							toggleDrawer(setOpenEmploeeDrawer)
 						}
 					/>
 					<FilterDrawer
@@ -65,7 +65,7 @@ export const MainEmploee = ({
 				sorting={sorting}
 				handleSortClick={handleSortClick}
 			/>
-			<DrawerTemplate
+			<PersonDrawer
 				isOpen={isOpenEmploeeDrawer}
 				toggleDrawer={() => toggleDrawer(setOpenEmploeeDrawer)}
 			/>

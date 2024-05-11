@@ -1,5 +1,9 @@
 import './PersonDrawer.style.scss'
 import { DrawerTemplate } from '../../ui/Drawer/DrawerTemplate'
+import { Code } from '../../Icons/Code'
+import { TabSlider } from '../../ui/TabSlider/TabSlider'
+import { PersonTabsType, personTabs } from '../../../constants/person'
+import { useState } from 'react'
 
 export const PersonDrawer = ({
 	isOpen,
@@ -8,6 +12,12 @@ export const PersonDrawer = ({
 	isOpen: boolean
 	toggleDrawer: () => void
 }) => {
+	const [tabsState, setTabsState] = useState<PersonTabsType>('generalInfo')
+
+	const handleClickTab = (tabValue: PersonTabsType) => {
+		setTabsState(tabValue)
+	}
+
 	return (
 		<DrawerTemplate
 			isOpen={isOpen}
@@ -17,9 +27,9 @@ export const PersonDrawer = ({
 		>
 			<div className='personDrawer__basicInfo'>
 				<div className='personDrawer__basicInfo-imageEmploee'>
-					<img src='#' alt='image' />
+					{/*<img src='#' alt='image' />*/}
 				</div>
-				<div>
+				<span>
 					<div className='personDrawer__basicInfo-signature'>
 						<h2 className='personDrawer__basicInfo-name'>
 							Александр Александрович
@@ -28,7 +38,7 @@ export const PersonDrawer = ({
 					</div>
 					<div className='personDrawer__basicInfo-work'>
 						<div className='personDrawer__basicInfo-department'>
-							<div className='personDrawer__basicInfo-department-icon'></div>
+							<Code className='personDrawer__basicInfo-department-icon' />
 							<p className='personDrawer__basicInfo-department-name'>
 								Разработка
 							</p>
@@ -37,9 +47,15 @@ export const PersonDrawer = ({
 							Начальник отдела
 						</p>
 					</div>
-				</div>
+				</span>
 			</div>
-			<div className='personDrawer-detailedInfo'></div>
+			<div className='personDrawer-detailedInfo'>
+				<TabSlider
+					value={tabsState}
+					tabList={personTabs}
+					handleClickTab={handleClickTab}
+				/>
+			</div>
 		</DrawerTemplate>
 	)
 }

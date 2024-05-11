@@ -1,5 +1,5 @@
 import './Header.style.scss'
-import { Tab } from '../../ui/Tab/Tab'
+import { Tab } from '../../ui/TabSlider/TabSlider'
 import { HeaderTab } from '../../../constants/headerTabs'
 import { SearchInput } from '../../ui/SearchInput/SearchInput'
 import { useState } from 'react'
@@ -28,7 +28,7 @@ export const HeaderEmploee = ({
 			<span>
 				<h1 className='header-name'>Сотрудники</h1>
 				<div className='header-tabs'>
-					{variantShow.map(tabsItem => (
+					{/*{variantShow.map(tabsItem => (
 						<Tab
 							key={tabsItem.text}
 							action={tabsItem.active}
@@ -39,7 +39,7 @@ export const HeaderEmploee = ({
 								handleClickTab(tabsItem.variant)
 							}
 						/>
-					))}
+					))}*/}
 				</div>
 			</span>
 			<SearchInput
