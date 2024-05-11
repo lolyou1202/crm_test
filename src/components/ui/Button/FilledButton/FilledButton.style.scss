@@ -8,6 +8,7 @@
 	border-radius: 4px;
 	cursor: pointer;
 	overflow: hidden;
+	transition: background-color 0.2s ease-in-out;
 	svg {
 		stroke: var(--gray-2);
 		transition: stroke 0.2s ease-in-out;
@@ -19,7 +20,7 @@
 		color: var(--gray-2);
 		transition: color 0.2s ease-in-out;
 	}
-	&:hover {
+	&:hover:not([disabled]) {
 		svg {
 			stroke: var(--primary);
 		}
@@ -28,12 +29,34 @@
 		}
 	}
 	&.action {
-		background-color: var(--gray-0);
-		svg {
-			stroke: var(--primary);
+		&.light {
+			background-color: var(--gray-0);
+			svg {
+				stroke: var(--primary);
+			}
+			p {
+				color: var(--primary);
+			}
 		}
-		p {
-			color: var(--primary);
+		&.dark {
+			background-color: var(--primary);
+			svg {
+				stroke: var(--white);
+			}
+			p {
+				color: var(--white);
+			}
+		}
+	}
+	&:disabled {
+		&.action {
+			background-color: var(--gray-0);
+			svg {
+				stroke: var(--primary);
+			}
+			p {
+				color: var(--primary);
+			}
 		}
 	}
 }

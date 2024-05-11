@@ -1,8 +1,9 @@
 import './FilledButton.style.scss'
 import classNames from 'classnames'
-import { ReactNode } from 'react'
 
 export const FilledButton = ({
+	variant = 'light',
+	disabled = false,
 	action = false,
 	text,
 	icon,
@@ -12,23 +13,28 @@ export const FilledButton = ({
 	className,
 	children,
 }: {
+	variant?: 'light' | 'dark'
+	disabled?: boolean
 	action?: boolean
 	text?: string
-	icon?: ReactNode
+	icon?: React.ReactNode
 	onClick?: () => void
 	onMouseEnter?: () => void
 	onMouseLeave?: () => void
 	className?: string
-	children?: ReactNode
+	children?: React.ReactNode
 }) => {
 	const filledButtonClassNames = classNames(
 		'filledButton',
+		variant,
+		disabled,
 		{ action: action },
 		className
 	)
 	return (
 		<button
 			className={filledButtonClassNames}
+			disabled={disabled}
 			onClick={onClick}
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}

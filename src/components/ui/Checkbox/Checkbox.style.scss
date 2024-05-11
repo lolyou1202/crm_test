@@ -1,0 +1,45 @@
+.checkbox {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	&-backdrop {
+		width: 16px;
+		height: 16px;
+		border-radius: 2px;
+		transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+	}
+	&-check {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 1;
+		transform: translate(-50%, -50%);
+		opacity: 0;
+		stroke: var(--white);
+		transition: opacity 0.2s ease-in-out;
+	}
+	&.default {
+		.checkbox-backdrop {
+			background-color: transparent;
+			border: 1px solid var(--gray-2);
+		}
+	}
+	&:hover {
+		.checkbox-backdrop {
+			border: 1px solid var(--primary);
+		}
+	}
+	&.action {
+		.checkbox-backdrop {
+			background-color: var(--primary);
+			border: 1px solid var(--primary);
+		}
+		.checkbox-check {
+			opacity: 1;
+		}
+	}
+	&.disabled {
+		pointer-events: none;
+		opacity: 0.3;
+	}
+}

@@ -1,28 +1,23 @@
 import './Sidebar.style.scss'
 import classNames from 'classnames'
-import { useState } from 'react'
 import { SidebarShowHideButton } from '../../ui/Button/SidebarButtons/SidebarShowHideButton'
 import { menuSidebar } from '../../../constants/menuSidebar'
 import { SidebarFilledButton } from '../../ui/Button/SidebarButtons/SidebarFilledButton'
 
-export const Sidebar = () => {
-	const [sidebarShow, setSidebarShow] = useState(true)
-
-	const sidebarClassNames = classNames(
-		'sidebar',
-		{ show: sidebarShow },
-		{ hide: !sidebarShow }
-	)
-
-	const handleClickShowHideButton = () => {
-		setSidebarShow(prevState => !prevState)
-	}
+export const Sidebar = ({
+	isCollapse,
+	handleShowHideButtonClick,
+}: {
+	isCollapse: boolean
+	handleShowHideButtonClick: () => void
+}) => {
+	const sidebarClassNames = classNames('sidebar', { hide: isCollapse })
 
 	return (
 		<div className={sidebarClassNames}>
 			<div className='sidebar__logo'>
 				<SidebarShowHideButton
-					handleClickShowHideButton={handleClickShowHideButton}
+					handleClickShowHideButton={handleShowHideButtonClick}
 				/>
 			</div>
 			<div className='sidebar__menu'>

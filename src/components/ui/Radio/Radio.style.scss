@@ -1,0 +1,49 @@
+.radio {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	&-backdrop {
+		width: 16px;
+		height: 16px;
+		border-radius: 100%;
+		transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+		&::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: 2;
+			transform: translate(-50%, -50%);
+			width: 6px;
+			height: 6px;
+			background-color: var(--white);
+			border-radius: 100%;
+			opacity: 0;
+			transition: opacity 0.2s ease-in-out;
+		}
+	}
+	&.default {
+		.radio-backdrop {
+			background-color: transparent;
+			border: 1px solid var(--gray-2);
+		}
+	}
+	&:hover {
+		.radio-backdrop {
+			border: 1px solid var(--primary);
+		}
+	}
+	&.action {
+		.radio-backdrop {
+			background-color: var(--primary);
+			border: 1px solid var(--primary);
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+	&.disabled {
+		pointer-events: none;
+		opacity: 0.3;
+	}
+}

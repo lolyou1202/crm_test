@@ -1,15 +1,16 @@
 .sidebar {
 	display: flex;
 	flex-direction: column;
-	flex-shrink: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
 	width: 240px;
+	height: 100%;
 	border-right: 1px solid var(--gray-2);
-	transition: max-width 0.4s ease, width 0.4s ease;
-	&.show {
-		max-width: 100%;
-	}
+	transition: all 0.4s ease;
 	&.hide {
-		max-width: 76px;
+		width: 77px;
 	}
 	&__showHideButton {
 		position: absolute;

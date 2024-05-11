@@ -4,6 +4,7 @@ import { TableSort } from '../../Icons/TableSort'
 import { useState } from 'react'
 import { TableRow, tableColumns } from '../../../constants/tableFields'
 import { colorTokens } from '../../../constants/colorTokens'
+import classNames from 'classnames'
 
 const { gray0, gray2, yellow } = colorTokens
 
@@ -53,30 +54,39 @@ export const TableEmploee = ({
 							}
 						/>
 					</th>
-					{tableColumns.map((column, index) => (
-						<th
-							key={column.id}
-							className='table-cell head'
-							onClick={() =>
-								handleSortClick({
-									atribute: column.id,
-									direction: sorting.direction,
-								})
-							}
-							onMouseEnter={() => setHoverColumn(index + 1)}
-							onMouseLeave={() => setHoverColumn(null)}
-							style={{ minWidth: column.minWidth }}
-						>
-							<p className='table-cell-text'>{column.label}</p>
-							<TableSort
-								sort={
-									sorting.atribute === column.id
-										? sorting.direction
-										: 'none'
+					{tableColumns.map((column, index) => {
+						const tableCellClassName = classNames(
+							'table-cell',
+							'head',
+							{ sort: sorting.atribute === column.id }
+						)
+						return (
+							<th
+								key={column.id}
+								className={tableCellClassName}
+								onClick={() =>
+									handleSortClick({
+										atribute: column.id,
+										direction: sorting.direction,
+									})
 								}
-							/>
-						</th>
-					))}
+								onMouseEnter={() => setHoverColumn(index + 1)}
+								onMouseLeave={() => setHoverColumn(null)}
+								style={{ minWidth: column.minWidth }}
+							>
+								<p className='table-cell-text'>
+									{column.label}
+								</p>
+								<TableSort
+									sort={
+										sorting.atribute === column.id
+											? sorting.direction
+											: 'none'
+									}
+								/>
+							</th>
+						)
+					})}
 				</tr>
 			</thead>
 			<tbody className='table-body'>

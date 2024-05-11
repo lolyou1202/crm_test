@@ -1,0 +1,43 @@
+.swich {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	&-track {
+		width: 28px;
+		height: 16px;
+		border-radius: 8px;
+		transition: background-color 0.2s ease-in-out;
+	}
+	&-slider {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 2;
+		transform: translate(-50%, -50%);
+		width: 12px;
+		height: 12px;
+		border-radius: 100%;
+		background-color: var(--white);
+		transition: transform 0.2s ease-in-out;
+	}
+	&.default {
+		.swich-track {
+			background-color: var(--gray-2);
+		}
+		.swich-slider {
+			transform: translate(-100%, -50%);
+		}
+	}
+	&.action {
+		.swich-track {
+			background-color: var(--primary);
+		}
+		.swich-slider {
+			transform: translate(0%, -50%);
+		}
+	}
+	&.disabled {
+		pointer-events: none;
+		opacity: .3;
+	}
+}

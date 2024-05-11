@@ -1,10 +1,10 @@
-export interface TableColumn {
+export type TableColumnType = {
 	id: keyof TableRow
 	label: string
 	minWidth?: number
 }
 
-export const tableColumns: TableColumn[] = [
+export const tableColumns: TableColumnType[] = [
 	{
 		id: 'name',
 		label: 'ФИО',
@@ -62,7 +62,7 @@ export const tableColumns: TableColumn[] = [
 	},
 ]
 
-export interface TableRow {
+export type TableRow = {
 	favorite?: boolean
 	name: string
 	id: string

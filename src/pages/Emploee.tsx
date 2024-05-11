@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { HeaderEmploee } from '../components/logic/Header/HeaderEmploee'
-import { Sidebar } from '../components/logic/Sidebar/Sidebar'
 import { headerTabs } from '../constants/headerTabs'
 import { MainEmploee } from '../components/logic/Main/MainEmploee/MainEmploee'
 import { TableRow, tableRows } from '../constants/tableFields'
@@ -51,25 +50,22 @@ export const Emploee = () => {
 	}
 
 	return (
-		<div className='app'>
-			<Sidebar />
-			<div className='main'>
-				<HeaderEmploee
-					variantShow={variantShow}
-					setVariantShow={setVariantShow}
-				/>
-				<MainEmploee
-					dataTable={filteredDataTable}
-					departmensFilter={
-						filters.department as {
-							filterAtrName: string
-							active: boolean
-						}[]
-					}
-					sorting={sorting}
-					handleSortClick={handleSortClick}
-				/>
-			</div>
-		</div>
+		<>
+			<HeaderEmploee
+				variantShow={variantShow}
+				setVariantShow={setVariantShow}
+			/>
+			<MainEmploee
+				dataTable={filteredDataTable}
+				departmensFilter={
+					filters.department as {
+						filterAtrName: string
+						active: boolean
+					}[]
+				}
+				sorting={sorting}
+				handleSortClick={handleSortClick}
+			/>
+		</>
 	)
 }

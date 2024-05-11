@@ -2,14 +2,14 @@ import { ReactNode } from 'react'
 import { Kanban } from '../components/Icons/Kanban'
 import { Table } from '../components/Icons/Table'
 
-export type HeaderTab = {
+export type HeaderTabType = {
 	variant: 'kanban' | 'table'
 	icon: ReactNode
 	text: string
 	active: boolean
 }
 
-export const headerTabs: HeaderTab[] = [
+export const headerTabs: HeaderTabType[] = [
 	{
 		variant: 'kanban',
 		icon: <Kanban />,

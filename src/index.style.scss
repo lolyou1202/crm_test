@@ -3,6 +3,7 @@
 :root {
 	--primary: #030b5d;
 	--black: #121c2d;
+	--black20: rgba(18, 28, 45, 0.2);
 	--white: #ffffff;
 	--gray-0: #f4f4f6;
 	--gray-1: #e1e3ea;
@@ -31,9 +32,16 @@
 }
 
 .main {
+	position: relative;
 	display: flex;
 	flex-direction: column;
+	left: 240px;
 	width: calc(100% - 240px);
+	transition: all .4s ease;
+	&.collapse {
+		left: 78px;
+		width: calc(100% - 78px);
+	}
 }
 
 svg {

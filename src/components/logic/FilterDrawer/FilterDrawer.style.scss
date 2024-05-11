@@ -1,0 +1,52 @@
+.filtersDrawer {
+	&-root {
+		width: 320px;
+		height: 100%;
+	}
+	&-wrapper {
+		gap: 16px;
+		height: calc(100% - 36px) !important;
+	}
+	&-label {
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 23px;
+		color: var(--black);
+		user-select: none;
+	}
+	&-content {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		overflow: scroll;
+	}
+	&-buttons {
+		display: flex;
+		gap: 16px;
+	}
+	&-funcButton {
+		justify-content: center;
+		width: 100%;
+		padding: 8px 12px;
+		border-radius: 18px;
+		p {
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 20px;
+		}
+	}
+}
+
+.filterSwichLine {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	&-label {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 20px;
+		color: var(--black);
+		user-select: none;
+	}
+}
