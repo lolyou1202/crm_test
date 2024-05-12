@@ -3,6 +3,11 @@
 		width: 800px;
 		height: 100%;
 	}
+	&-wrapper {
+		gap: 16px;
+		justify-content: flex-start;
+		height: calc(100% - 36px);
+	}
 	&__basicInfo {
 		display: flex;
 		align-items: center;

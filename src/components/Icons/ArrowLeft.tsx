@@ -1,4 +1,4 @@
-export const ArrowRight = ({
+export const ArrowLeft = ({
 	size = 20,
 	className,
 	stroke,
@@ -19,7 +19,7 @@ export const ArrowRight = ({
 			xmlns='http://www.w3.org/2000/svg'
 		>
 			<path
-				d='M8 6L12 10L8 14'
+				d='M12 14L8 10L12 6'
 				stroke={stroke}
 				strokeWidth={strokeWidth}
 				strokeLinecap='round'

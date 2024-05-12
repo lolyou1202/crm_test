@@ -2,7 +2,7 @@ import './DrawerTemplate.style.scss'
 import classNames from 'classnames'
 import { Drawer } from '@mui/material'
 import { FilledButton } from '../Button/FilledButton/FilledButton'
-import { ArrowRight } from '../../Icons/ArrowRight'
+import { ArrowLeft } from '../../Icons/ArrowLeft'
 
 export const DrawerTemplate = ({
 	isOpen,
@@ -30,7 +30,7 @@ export const DrawerTemplate = ({
 			<div className={drawerRootClassNames}>
 				<span>
 					<FilledButton
-						icon={<ArrowRight />}
+						icon={<ArrowLeft />}
 						text='Назад'
 						action={false}
 						onClick={toggleDrawer}

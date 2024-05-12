@@ -1,6 +1,10 @@
 import './TabSlider.style.scss'
 import classNames from 'classnames'
-import { PersonTabsList, PersonTabsType } from '../../../constants/person'
+import {
+	PersonInfoCategoryType,
+	PersonTabsList,
+} from '../../../constants/person'
+import { TabScrollButton } from './TabsScrollButtons'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 
@@ -11,9 +15,9 @@ export const TabSlider = ({
 	classNameSlider,
 	classNameTab,
 }: {
-	value: PersonTabsType
+	value: PersonInfoCategoryType
 	tabList: PersonTabsList[]
-	handleClickTab?: (tabValue: PersonTabsType) => void
+	handleClickTab: (tabValue: PersonInfoCategoryType) => void
 	classNameSlider?: string
 	classNameTab?: string
 }) => {
@@ -25,7 +29,9 @@ export const TabSlider = ({
 			value={value}
 			className={sliderClassNames}
 			variant='scrollable'
-			scrollButtons={false}
+			scrollButtons='auto'
+			allowScrollButtonsMobile
+			ScrollButtonComponent={TabScrollButton}
 		>
 			{tabList.map(tab => (
 				<Tab
@@ -34,7 +40,7 @@ export const TabSlider = ({
 					icon={tab.icon}
 					label={tab.label}
 					className={tabClassNames}
-					onClick={() => handleClickTab && handleClickTab(tab.value)}
+					onClick={() => handleClickTab(tab.value)}
 					disableRipple
 				/>
 			))}

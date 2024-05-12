@@ -32,12 +32,15 @@ export const MainEmploee = ({
 }) => {
 	const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
 	const [isOpenEmploeeDrawer, setOpenEmploeeDrawer] = useState(false)
-	const [isOpenDepartmentFilter, setOpenDepartmentFilter] = useState(false)
+	const [isFiltered, setFilter] = useState(false)
 
 	const toggleDrawer = (
 		setStateFunction: React.Dispatch<React.SetStateAction<boolean>>
 	) => {
 		setStateFunction(prevState => !prevState)
+	}
+	const handleEmploeeClick = () => {
+		setOpenEmploeeDrawer(true)
 	}
 
 	return (
@@ -49,14 +52,16 @@ export const MainEmploee = ({
 						{dataTable.length} из {dataTable.length}
 					</p>
 					<FilterDefault
-						action={isOpenEmploeeDrawer}
+						action={isFiltered}
 						handleFilterButtonClick={() =>
-							toggleDrawer(setOpenEmploeeDrawer)
+							toggleDrawer(setOpenFilterDrawer)
 						}
+						handleDeleteFilterClick={() => toggleDrawer(setFilter)}
 					/>
 					<FilterDrawer
 						isOpen={isOpenFilterDrawer}
 						toggleDrawer={() => toggleDrawer(setOpenFilterDrawer)}
+						handleAddFilterClick={() => toggleDrawer(setFilter)}
 					/>
 				</span>
 			</span>
@@ -64,6 +69,7 @@ export const MainEmploee = ({
 				dataTable={dataTable}
 				sorting={sorting}
 				handleSortClick={handleSortClick}
+				handleEmploeeClick={handleEmploeeClick}
 			/>
 			<PersonDrawer
 				isOpen={isOpenEmploeeDrawer}

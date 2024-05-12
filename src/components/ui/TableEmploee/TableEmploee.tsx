@@ -12,6 +12,7 @@ export const TableEmploee = ({
 	dataTable,
 	sorting,
 	handleSortClick,
+	handleEmploeeClick,
 }: {
 	dataTable: TableRow[]
 	sorting: {
@@ -25,6 +26,7 @@ export const TableEmploee = ({
 		atribute: keyof TableRow
 		direction: 'asc' | 'desc'
 	}) => void
+	handleEmploeeClick: () => void
 }) => {
 	const [hoverColumn, setHoverColumn] = useState<number | null>(null)
 
@@ -118,6 +120,11 @@ export const TableEmploee = ({
 								<td
 									key={index}
 									className='table-cell body'
+									onClick={
+										index === 1
+											? handleEmploeeClick
+											: () => {}
+									}
 									style={{
 										backgroundColor:
 											hoverColumn === index ? gray0 : '',

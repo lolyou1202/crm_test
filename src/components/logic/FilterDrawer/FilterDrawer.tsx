@@ -16,9 +16,11 @@ import { FilledButton } from '../../ui/Button/FilledButton/FilledButton'
 export const FilterDrawer = ({
 	isOpen,
 	toggleDrawer,
+	handleAddFilterClick,
 }: {
 	isOpen: boolean
 	toggleDrawer: () => void
+	handleAddFilterClick: () => void
 }) => {
 	const [filterState, setFilterState] = useState<{
 		favorites: boolean
@@ -183,7 +185,10 @@ export const FilterDrawer = ({
 					text='Показать'
 					action={true}
 					disabled={!isSelectedOne}
-					onClick={toggleDrawer}
+					onClick={() => {
+						toggleDrawer()
+						handleAddFilterClick()
+					}}
 				/>
 			</div>
 		</DrawerTemplate>
