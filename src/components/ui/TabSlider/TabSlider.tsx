@@ -41,7 +41,6 @@ export const TabSlider = ({
 					label={tab.label}
 					className={tabClassNames}
 					onClick={() => handleClickTab(tab.value)}
-					disableRipple
 				/>
 			))}
 		</Tabs>

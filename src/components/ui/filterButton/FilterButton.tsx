@@ -1,9 +1,9 @@
-import './FilterDefault.style.scss'
+import './FilterButton.style.scss'
 import { Cross } from '../../Icons/Cross'
 import { Filter } from '../../Icons/Filter'
 import { FilledButton } from '../Button/FilledButton/FilledButton'
 
-export const FilterDefault = ({
+export const FilterButton = ({
 	action,
 	handleFilterButtonClick,
 	handleDeleteFilterClick,
@@ -13,10 +13,10 @@ export const FilterDefault = ({
 	handleDeleteFilterClick: () => void
 }) => {
 	return (
-		<div className='filterDefault'>
+		<div className='filterButton'>
 			{action && (
 				<button
-					className='filterDefault-cross'
+					className='filterButton-cross'
 					onClick={handleDeleteFilterClick}
 				>
 					<Cross size={20} />
@@ -27,7 +27,7 @@ export const FilterDefault = ({
 				text='Фильтр'
 				action={action}
 				onClick={handleFilterButtonClick}
-				className='filterDefault-button'
+				className='filterButton-button'
 			/>
 		</div>
 	)

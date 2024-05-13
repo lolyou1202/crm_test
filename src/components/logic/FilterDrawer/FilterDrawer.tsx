@@ -74,7 +74,6 @@ export const FilterDrawer = ({
 		return (label: string) => {
 			setFilterState(prevState => {
 				let newOptionList: OptionType[] = []
-
 				switch (prevState[filterAtr].optionType) {
 					case 'radio':
 						newOptionList = prevState[filterAtr].optionList.map(
@@ -93,7 +92,6 @@ export const FilterDrawer = ({
 						)
 						break
 				}
-
 				return {
 					...prevState,
 					[filterAtr]: {

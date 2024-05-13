@@ -1,6 +1,5 @@
 import './Header.style.scss'
 import { SearchInput } from '../../ui/SearchInput/SearchInput'
-import { TableRow } from '../../../constants/tableFields'
 
 export const HeaderEmploee = ({
 	valueInput,
@@ -8,7 +7,10 @@ export const HeaderEmploee = ({
 	onChangeInput,
 }: {
 	valueInput: string
-	resultsInput: TableRow[] | undefined
+	resultsInput: {
+		id: string
+		name: string
+	}[]
 	onChangeInput: (value: string) => void
 }) => {
 	return (
@@ -19,9 +21,9 @@ export const HeaderEmploee = ({
 			<SearchInput
 				className='header-search'
 				value={valueInput}
+				results={resultsInput}
 				onChange={onChangeInput}
 			/>
-			<div>{resultsInput?.map(asd => asd.name)}</div>
 		</div>
 	)
 }

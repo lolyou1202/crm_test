@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { HeaderEmploee } from '../../components/logic/Header/HeaderEmploee'
 import { TableRow, tableRows } from '../../constants/tableFields'
 import { FilterDepartment } from '../../components/logic/FilterDepartment/FilterDepartment'
-import { FilterDefault } from '../../components/ui/FilterDefault/FilterDefault'
+import { FilterButton } from '../../components/ui/filterButton/FilterButton'
 import { FilterDrawer } from '../../components/logic/FilterDrawer/FilterDrawer'
 import { TableEmploee } from '../../components/ui/TableEmploee/TableEmploee'
 import { PersonDrawer } from '../../components/logic/PersonDrawer/PersonDrawer'
@@ -15,12 +15,11 @@ import {
 	directorOptions,
 	postOptions,
 } from '../../constants/filterOptions'
-
-const dataTable = tableRows
+import { PaginationCustom } from '../../components/ui/Pagination/PaginationCustom'
 
 export const Emploee = () => {
 	const [filteredDataTable, setFilteredDataTable] = useState<TableRow[]>(
-		dataTable.map(row => ({ favorite: false, ...row }))
+		tableRows.map(row => ({ favorite: false, ...row }))
 	)
 	const [searchInput, setSearchInput] = useState('')
 
@@ -50,6 +49,8 @@ export const Emploee = () => {
 	const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
 	const [isOpenEmploeeDrawer, setOpenEmploeeDrawer] = useState(false)
 	const [isFiltered, setFilter] = useState(false)
+
+	const [paginationPage, setPaginationPage] = useState(1)
 
 	const handleClickDepartment = (departmentChoice: string) => {
 		if (departmentChoice === 'Все') {
@@ -95,6 +96,7 @@ export const Emploee = () => {
 				optionList: clearFunc(prevState.post.optionList),
 			},
 		}))
+		setFilter(false)
 	}
 	const handleClickFavorite = (rowId: string) => {
 		setFilteredDataTable(prevState => {
@@ -153,9 +155,27 @@ export const Emploee = () => {
 	) => {
 		setStateFunction(prevState => !prevState)
 	}
+	const handleChangePagination = (
+		_: React.ChangeEvent<unknown>,
+		value: number
+	) => {
+		setPaginationPage(value)
+	}
 	const getSearchResults = useMemo(() => {
-		return filteredDataTable.filter(row => row.name.includes(searchInput))
-	}, [searchInput])
+		if (searchInput.length > 0) {
+			const findedRows = filteredDataTable.filter(
+				row =>
+					row.id.includes(searchInput) ||
+					row.name.includes(searchInput) ||
+					row.email.includes(searchInput) ||
+					row.phone.includes(searchInput) ||
+					row.post.includes(searchInput)
+			)
+			return findedRows.map(row => ({ id: row.id, name: row.name }))
+		} else {
+			return []
+		}
+	}, [filteredDataTable, searchInput])
 
 	return (
 		<>
@@ -172,9 +192,9 @@ export const Emploee = () => {
 					/>
 					<span>
 						<p>
-							{dataTable.length} из {dataTable.length}
+							{`${filteredDataTable.length} из ${filteredDataTable.length}`}
 						</p>
-						<FilterDefault
+						<FilterButton
 							action={isFiltered}
 							handleFilterButtonClick={() =>
 								toggleDrawer(setOpenFilterDrawer)
@@ -206,6 +226,10 @@ export const Emploee = () => {
 				<PersonDrawer
 					isOpen={isOpenEmploeeDrawer}
 					toggleDrawer={() => toggleDrawer(setOpenEmploeeDrawer)}
+				/>
+				<PaginationCustom
+					paginationPage={paginationPage}
+					handleChangePagination={handleChangePagination}
 				/>
 			</div>
 		</>
