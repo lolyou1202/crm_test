@@ -1,29 +1,23 @@
 import './FilterDepartment.style.scss'
 import { useState } from 'react'
+import { OptionType } from '../../../constants/filterOptions'
 import { NUMOFUNCOVEREDFILTERS } from '../../../constants/departmens'
 import { OutlineButton } from '../../ui/Button/OutlineButton/OutlineButton'
 import classNames from 'classnames'
 
 export const FilterDepartment = ({
-	departmensFilter,
+	optionList,
+	handleDepartmentClick,
 }: {
-	departmensFilter: {
-		filterAtrName: string
-		active: boolean
-	}[]
+	optionList: OptionType[]
+	handleDepartmentClick: (department: string) => void
 }) => {
 	const [isShowMore, setShowMore] = useState(false)
 
 	return (
 		<div className='filter-department'>
 			<div className='department-list'>
-				<OutlineButton
-					text='Все'
-					action={true}
-					className='department-item'
-					onClick={() => {}}
-				/>
-				{departmensFilter.map((department, index) => {
+				{optionList.map((department, index) => {
 					const departmentItemClassNames = classNames(
 						'department-item',
 						{
@@ -34,15 +28,17 @@ export const FilterDepartment = ({
 					)
 					return (
 						<OutlineButton
-							key={department.filterAtrName}
-							text={department.filterAtrName}
+							key={department.label}
+							text={department.label}
 							action={department.active}
 							className={departmentItemClassNames}
-							onClick={() => {}}
+							onClick={() =>
+								handleDepartmentClick(department.label)
+							}
 						/>
 					)
 				})}
-				{departmensFilter.length > NUMOFUNCOVEREDFILTERS && (
+				{optionList.length > NUMOFUNCOVEREDFILTERS && (
 					<OutlineButton
 						text={isShowMore ? 'Скрыть' : 'Показать все'}
 						action={false}

@@ -18,6 +18,7 @@
 		font-size: 16px;
 		line-height: 20px;
 		color: var(--gray-2);
+		user-select: none;
 		transition: color 0.2s ease-in-out;
 	}
 	&:hover:not([disabled]) {

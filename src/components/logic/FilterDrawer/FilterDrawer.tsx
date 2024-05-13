@@ -1,41 +1,40 @@
 import './FilterDrawer.style.scss'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { DrawerTemplate } from '../../ui/Drawer/DrawerTemplate'
 import { Swich } from '../../ui/Swich/Swich'
 import { Accordion } from '../../ui/Accordion/Accordion'
-import {
-	AccordionOptionType,
-	AccordionType,
-	branchOptions,
-	departmentOptions,
-	directorOptions,
-	postOptions,
-} from '../../../constants/filterOptions'
+import { OptionType, AccordionType } from '../../../constants/filterOptions'
 import { FilledButton } from '../../ui/Button/FilledButton/FilledButton'
 
 export const FilterDrawer = ({
+	filterState,
 	isOpen,
+	setFilterState,
 	toggleDrawer,
-	handleAddFilterClick,
+	handleClickClear,
+	handleClickAdd,
 }: {
-	isOpen: boolean
-	toggleDrawer: () => void
-	handleAddFilterClick: () => void
-}) => {
-	const [filterState, setFilterState] = useState<{
+	filterState: {
 		favorites: boolean
 		branch: AccordionType
 		department: AccordionType
 		post: AccordionType
 		director: AccordionType
-	}>({
-		favorites: false,
-		branch: { optionType: 'radio', optionList: branchOptions },
-		department: { optionType: 'checkbox', optionList: departmentOptions },
-		post: { optionType: 'checkbox', optionList: postOptions },
-		director: { optionType: 'checkbox', optionList: directorOptions },
-	})
-
+	}
+	isOpen: boolean
+	setFilterState: React.Dispatch<
+		React.SetStateAction<{
+			favorites: boolean
+			branch: AccordionType
+			department: AccordionType
+			post: AccordionType
+			director: AccordionType
+		}>
+	>
+	toggleDrawer: () => void
+	handleClickClear: () => void
+	handleClickAdd: () => void
+}) => {
 	const isSelectedOne = useMemo(() => {
 		for (const index in filterState) {
 			const key = index as keyof typeof filterState
@@ -74,7 +73,7 @@ export const FilterDrawer = ({
 	) => {
 		return (label: string) => {
 			setFilterState(prevState => {
-				let newOptionList: AccordionOptionType[] = []
+				let newOptionList: OptionType[] = []
 
 				switch (prevState[filterAtr].optionType) {
 					case 'radio':
@@ -104,33 +103,6 @@ export const FilterDrawer = ({
 				}
 			})
 		}
-	}
-
-	const handleClickClear = () => {
-		setFilterState(prevState => {
-			const clearFunc = (array: AccordionOptionType[]) => {
-				return array.map(option => ({
-					...option,
-					active: false,
-				}))
-			}
-			return {
-				favorites: false,
-				branch: prevState.branch,
-				department: {
-					...prevState.department,
-					optionList: clearFunc(prevState.department.optionList),
-				},
-				director: {
-					...prevState.director,
-					optionList: clearFunc(prevState.director.optionList),
-				},
-				post: {
-					...prevState.post,
-					optionList: clearFunc(prevState.post.optionList),
-				},
-			}
-		})
 	}
 
 	return (
@@ -187,7 +159,7 @@ export const FilterDrawer = ({
 					disabled={!isSelectedOne}
 					onClick={() => {
 						toggleDrawer()
-						handleAddFilterClick()
+						handleClickAdd()
 					}}
 				/>
 			</div>

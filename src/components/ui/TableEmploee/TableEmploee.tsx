@@ -11,6 +11,7 @@ const { gray0, gray2, yellow } = colorTokens
 export const TableEmploee = ({
 	dataTable,
 	sorting,
+	handleClickFavorite,
 	handleSortClick,
 	handleEmploeeClick,
 }: {
@@ -19,6 +20,7 @@ export const TableEmploee = ({
 		atribute: keyof TableRow
 		direction: 'asc' | 'desc'
 	}
+	handleClickFavorite: (rowId: string) => void
 	handleSortClick: ({
 		atribute,
 		direction,
@@ -97,7 +99,9 @@ export const TableEmploee = ({
 						{Object.keys(row).map((cell, index) =>
 							cell === 'favorite' ? (
 								<td
+									key={index}
 									className='table-cell body'
+									onClick={() => handleClickFavorite(row.id)}
 									style={{
 										backgroundColor:
 											hoverColumn === 0 ? gray0 : '',

@@ -1,4 +1,4 @@
-import { Sidebar } from '../components/logic/Sidebar/Sidebar'
+import { Sidebar } from "../../components/logic/Sidebar/Sidebar"
 
 export const Dashboard = () => {
 	return (
