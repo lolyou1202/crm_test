@@ -6,7 +6,7 @@ import { Emploee } from './pages/Emploee/Emploee'
 import { Dashboard } from './pages/Dashboard/Dashboard'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-	<BrowserRouter basename={window.location.pathname || ''}>
+	<BrowserRouter>
 		<Routes>
 			<Route path='/' element={<Navigate to='/dashboard' />} />
 			<Route path='/employee' element={<App page={<Emploee />} />} />
