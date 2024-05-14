@@ -16,7 +16,7 @@ const theme = createTheme({
 function App({ page }: { page: React.ReactNode }) {
 	const [isCollapseSidebar, setCollapseSidebar] = useState(false)
 
-	const handleShowHideButtonClick = () => {
+	const handleClickShowHideButton = () => {
 		setCollapseSidebar(prevState => !prevState)
 	}
 
@@ -27,7 +27,7 @@ function App({ page }: { page: React.ReactNode }) {
 			<div className='app'>
 				<Sidebar
 					isCollapse={isCollapseSidebar}
-					handleShowHideButtonClick={handleShowHideButtonClick}
+					handleClickShowHideButton={handleClickShowHideButton}
 				/>
 				<div className={mainClassNames}>{page}</div>
 			</div>

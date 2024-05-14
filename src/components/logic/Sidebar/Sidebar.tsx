@@ -6,10 +6,10 @@ import { SidebarFilledButton } from '../../ui/Button/SidebarButtons/SidebarFille
 
 export const Sidebar = ({
 	isCollapse,
-	handleShowHideButtonClick,
+	handleClickShowHideButton,
 }: {
 	isCollapse: boolean
-	handleShowHideButtonClick: () => void
+	handleClickShowHideButton: () => void
 }) => {
 	const sidebarClassNames = classNames('sidebar', { hide: isCollapse })
 
@@ -17,7 +17,7 @@ export const Sidebar = ({
 		<div className={sidebarClassNames}>
 			<div className='sidebar__logo'>
 				<SidebarShowHideButton
-					handleClickShowHideButton={handleShowHideButtonClick}
+					handleClickShowHideButton={handleClickShowHideButton}
 				/>
 			</div>
 			<div className='sidebar__menu'>

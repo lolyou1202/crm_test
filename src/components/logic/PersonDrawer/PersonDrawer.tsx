@@ -1,8 +1,8 @@
 import './PersonDrawer.style.scss'
+import { useState } from 'react'
 import { DrawerTemplate } from '../../ui/Drawer/DrawerTemplate'
 import { TabSlider } from '../../ui/TabSlider/TabSlider'
 import { PersonInfoCategoryType, personTabs } from '../../../constants/person'
-import { useState } from 'react'
 import { PersonBasicInfo } from './PersonBasicInfo'
 import { DetailedInfo } from '../../ui/DetailedInfo/DetailedInfo'
 

@@ -1,16 +1,16 @@
 import './FilterDepartment.style.scss'
-import { useState } from 'react'
 import { OptionType } from '../../../constants/filterOptions'
+import { useState } from 'react'
+import classNames from 'classnames'
 import { NUMOFUNCOVEREDFILTERS } from '../../../constants/departmens'
 import { OutlineButton } from '../../ui/Button/OutlineButton/OutlineButton'
-import classNames from 'classnames'
 
 export const FilterDepartment = ({
 	optionList,
-	handleDepartmentClick,
+	handleClickDepartment,
 }: {
 	optionList: OptionType[]
-	handleDepartmentClick: (department: string) => void
+	handleClickDepartment: (department: string) => void
 }) => {
 	const [isShowMore, setShowMore] = useState(false)
 
@@ -33,7 +33,7 @@ export const FilterDepartment = ({
 							action={department.active}
 							className={departmentItemClassNames}
 							onClick={() =>
-								handleDepartmentClick(department.label)
+								handleClickDepartment(department.label)
 							}
 						/>
 					)

@@ -34,7 +34,7 @@ export const SearchInput = ({
 				/>
 				{results.length > 0 && (
 					<div className='search__results'>
-						{results.slice(0, 5).map(result => (
+						{results.map(result => (
 							<div
 								key={result.id}
 								className='search__results-item'

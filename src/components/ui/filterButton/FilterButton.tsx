@@ -5,19 +5,19 @@ import { FilledButton } from '../Button/FilledButton/FilledButton'
 
 export const FilterButton = ({
 	action,
-	handleFilterButtonClick,
-	handleDeleteFilterClick,
+	handleClickFilterButton,
+	handleClickDeleteFilter,
 }: {
 	action: boolean
-	handleFilterButtonClick: () => void
-	handleDeleteFilterClick: () => void
+	handleClickFilterButton: () => void
+	handleClickDeleteFilter: () => void
 }) => {
 	return (
 		<div className='filterButton'>
 			{action && (
 				<button
 					className='filterButton-cross'
-					onClick={handleDeleteFilterClick}
+					onClick={handleClickDeleteFilter}
 				>
 					<Cross size={20} />
 				</button>
@@ -26,7 +26,7 @@ export const FilterButton = ({
 				icon={<Filter />}
 				text='Фильтр'
 				action={action}
-				onClick={handleFilterButtonClick}
+				onClick={handleClickFilterButton}
 				className='filterButton-button'
 			/>
 		</div>

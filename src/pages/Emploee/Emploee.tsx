@@ -188,7 +188,7 @@ export const Emploee = () => {
 				<span>
 					<FilterDepartment
 						optionList={FilterDepartmentOptions}
-						handleDepartmentClick={handleClickDepartment}
+						handleClickDepartment={handleClickDepartment}
 					/>
 					<span>
 						<p>
@@ -196,10 +196,10 @@ export const Emploee = () => {
 						</p>
 						<FilterButton
 							action={isFiltered}
-							handleFilterButtonClick={() =>
+							handleClickFilterButton={() =>
 								toggleDrawer(setOpenFilterDrawer)
 							}
-							handleDeleteFilterClick={() => {
+							handleClickDeleteFilter={() => {
 								toggleDrawer(setFilter)
 								handleClickClearFilter()
 							}}
@@ -220,8 +220,8 @@ export const Emploee = () => {
 					dataTable={filteredDataTable}
 					sorting={sorting}
 					handleClickFavorite={handleClickFavorite}
-					handleSortClick={handleClickSort}
-					handleEmploeeClick={handleClickEmploee}
+					handleClickSort={handleClickSort}
+					handleClickEmploee={handleClickEmploee}
 				/>
 				<PersonDrawer
 					isOpen={isOpenEmploeeDrawer}
