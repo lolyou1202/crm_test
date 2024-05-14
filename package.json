@@ -10,7 +10,7 @@
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d dist"
 	},
-	"homepage": "https://lolyou1202.github.io/crm_test/",
+	"homepage": "https://lolyou1202.github.io/crm_test",
 	"dependencies": {
 		"@emotion/react": "^11.11.4",
 		"@emotion/styled": "^11.11.5",
