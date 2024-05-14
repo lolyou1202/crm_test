@@ -97,8 +97,8 @@ export const TableEmploeeRow = ({
 			return (
 				<tr className='table-row'>
 					{cellsList &&
-						Object.keys(cellsList).map((cell, index) =>
-							cell === 'favorite' ? (
+						Object.entries(cellsList).map(([key, value], index) =>
+							key === 'favorite' ? (
 								<TableEmploeeCell
 									key={index}
 									typeRow='body'
@@ -123,7 +123,7 @@ export const TableEmploeeRow = ({
 									key={index}
 									typeRow='body'
 									typeCell='default'
-									labelCell={cellsList[cell]}
+									labelCell={`${value}`}
 									className='table-cell body'
 									style={{
 										backgroundColor:
